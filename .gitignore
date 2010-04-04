@@ -1,5 +1,8 @@
 .bundle
+doc/api
+doc/app
 db/*.sqlite3
 log/*.log
-tmp/**/*
+tmp/*
 *~
+!.gitkeep
