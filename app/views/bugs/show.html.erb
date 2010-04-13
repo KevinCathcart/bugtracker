@@ -1,0 +1,43 @@
+<p>
+  <b>Description:</b>
+  <%= @bug.description %>
+</p>
+
+<p>
+  <b>See also:</b>
+  <%= @bug.see_also %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @bug.status %>
+</p>
+
+<p>
+  <b>Severity:</b>
+  <%= @bug.severity %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%= @bug.priority %>
+</p>
+
+<p>
+  <b>Duplicate of:</b>
+  <%= @bug.duplicate_of_id %>
+</p>
+
+<p>
+  <b>Creator:</b>
+  <%= @bug.creator_id %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @bug.product_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_bug_path(@bug) %> |
+<%= link_to 'Back', bugs_path %>

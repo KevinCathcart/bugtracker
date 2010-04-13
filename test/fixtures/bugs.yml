@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  description: MyString
+  see_also: MyString
+  status: 
+  severity: 
+  priority: 
+  duplicate_of_id: 
+  creator_id: 
+  product_id: 
+
+two:
+  description: MyString
+  see_also: MyString
+  status: 
+  severity: 
+  priority: 
+  duplicate_of_id: 
+  creator_id: 
+  product_id: 
