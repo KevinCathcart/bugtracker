@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Bugtracker <%= @page_title%></title>
-  <%= stylesheet_link_tag 'scaffold' %>
+  <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= javascript_include_tag request.ssl? ? 'https://rpxnow.com/js/lib/rpx.js' : 'http://static.rpxnow.com/js/lib/rpx.js'%>
   <%= csrf_meta_tag %>
@@ -16,10 +16,6 @@
 <a class="rpxnow" onclick="return false;" href="https://bug-tracker.rpxnow.com/openid/v2/signin?token_url=http%3A%2F%2F127.0.0.1%2Flogin">Sign In</a>
 <% end %>
 </div>
-
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 
 <%= yield %>
 
