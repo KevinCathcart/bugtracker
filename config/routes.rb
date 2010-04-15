@@ -1,5 +1,5 @@
 Bugtracker::Application.routes.draw do |map|
-  resources :bugs
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -13,6 +13,7 @@ Bugtracker::Application.routes.draw do |map|
   
   #Also including RESTful routing
   resource :session, :only => [:show, :create, :destroy]
+  resources :bugs
   
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
