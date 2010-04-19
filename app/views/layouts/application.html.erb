@@ -12,7 +12,8 @@
 
 <div class="topbar">
 <% if current_user %>
-<%= link_to "Logout", :action => :destroy %>
+<%= current_user.displayname %>: 
+<%= link_to "Logout", :controller => 'sessions', :action => :destroy %>
 <% else %>
 <%= link_to "Sign In", rpx_url , :class=>'rpxnow', :onclick=>'return false;' %>
 <% end %>

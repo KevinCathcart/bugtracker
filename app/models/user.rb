@@ -3,9 +3,9 @@ class User < ActiveRecord::Base
 
   def displayname
     if nickname
-      nickname + " (#{identifier})"
+      nickname + " (#{identifier_hash})"
     else
-      identifier
+      identifier_hash
     end
   end
  
@@ -15,10 +15,10 @@ class User < ActiveRecord::Base
   end
  
   private
-  # not used right now, but might be used in the display name
+  
   def identifier_hash
     # 'm0' is the packing code for Base64
-    Digest::SHA1.digest(identifier).split.pack('m0')
+    Digest::SHA1.digest(identifier).split.pack('m0')[0..26]
   end
 
 end

@@ -3,8 +3,12 @@ class SessionsController < ApplicationController
   # so skip the scross site request forgery checks.
   skip_before_filter :verify_authenticity_token
   
+  # TODO:  add optional query param indicating  location to redirect to
+  # and place in an after_filter
+  
   # GET /session
   def show
+    redirect_to rpx_url
   end
 
   # POST /session
@@ -17,13 +21,13 @@ class SessionsController < ApplicationController
     else
       flash[:notice] = 'Log in failed'
     end
-    redirect_to :action => :show
+    redirect_to root_url
   end
 
   # DELETE /session
   def destroy
     self.current_user=nil
-    redirect_to :action => :show
+    redirect_to root_url
   end
   
   private
