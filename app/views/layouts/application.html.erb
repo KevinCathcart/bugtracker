@@ -10,10 +10,11 @@
 </head>
 <body>
 
-<div class="topbar"><% if current_user %>
+<div class="topbar">
+<% if current_user %>
 <%= link_to "Logout", :action => :destroy %>
 <% else %>
-<a class="rpxnow" onclick="return false;" href="https://bug-tracker.rpxnow.com/openid/v2/signin?token_url=http%3A%2F%2F127.0.0.1%2Flogin">Sign In</a>
+<%= link_to "Sign In", rpx_url , :class=>'rpxnow', :onclick=>'return false;' %>
 <% end %>
 </div>
 
