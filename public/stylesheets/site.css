@@ -1,0 +1,9 @@
+/*  */
+
+html, body { background: #333 }
+
+#content, #topbar {margin: auto 10% auto 10%; }
+.title {float:left; font-size:200%}
+
+#topbar { text-align: right; background: #4F4; padding: 1em; border-bottom: solid 0.5em #181} 
+#content { background: #AF4; padding:3em}

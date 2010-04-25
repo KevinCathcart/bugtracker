@@ -61,4 +61,14 @@
   <%= @bug.product.name %>
 </p>
 
+<% @bug.comments.each do |c| %>
+  <hr/>
+  <p> <%= c.created_at %> </p>
+  <p> <%= c.creator.displayname %> </p>
+  <p>
+    <%= c.content %>
+  </p>
+<% end %>
+
+<%= link_to 'New Comment', new_bug_comment_path(@bug) %> |
 <%= link_to 'Back', bugs_path %>
