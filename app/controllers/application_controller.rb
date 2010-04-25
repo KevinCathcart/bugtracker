@@ -5,6 +5,13 @@ class ApplicationController < ActionController::Base
   private
   helper_method :current_user, :rpx_url
   
+  def require_login
+    unless current_user
+      flash[:notice] = "Must be signed-in to do that."
+      redirect_to root_url
+    end
+  end
+  
   def current_user
     # Use :find_by_id because :find throws if no record is found
     # while :find_by_id returns nil as desired.

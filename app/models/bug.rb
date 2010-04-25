@@ -9,7 +9,6 @@ class Bug < ActiveRecord::Base
   SEVERITIES =[[ 'Blocker', 0], ['Mostly Non-Trivial', 1], ['Major', 2], ['Normal', 3],['Minor', 4], ['Trivial',5],['Enhancement',6]]
   STATUSES =[[ 'UNCONFIRMED', 0], ['NEW', 1], ['ASSIGNED', 2], ['REOPENED', 3],['RESOLVED', 4], ['NOTABUG',5],['WONTFIX',6],['DUPLICATE',7],['WORKSFORME',8]]
   
-  
   validates :creator, :presence => true
   validates :product, :presence => true
   validates :description, :presence => true
@@ -17,6 +16,9 @@ class Bug < ActiveRecord::Base
   validates :severity, :inclusion => { :in => SEVERITIES.map { |disp, value| value } }
   validates :priority, :inclusion => { :in => PRIORITIES.map { |disp, value| value } }
   validates :duplicate_of_id, :numericality => { :allow_nil => true, :only_integer => true }
+  
+  #list what attributes can be mass assigned
+  attr_accessible :status, :duplicate_of_id, :description, :product_id, :severity, :priority, :see_also
   
   def number
     "##{id}"

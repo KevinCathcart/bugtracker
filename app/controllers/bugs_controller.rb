@@ -1,4 +1,7 @@
 class BugsController < ApplicationController
+  
+  before_filter :require_login, :except => [:index, :show]
+  
   # GET /bugs
   # GET /bugs.xml
   def index
@@ -32,16 +35,10 @@ class BugsController < ApplicationController
     end
   end
 
-  # GET /bugs/1/edit
-  def edit
-    @bug = Bug.find(params[:id])
-  end
-
   # POST /bugs
   # POST /bugs.xml
   def create
     @bug = Bug.new(params[:bug])
-    # TODO: forbid creator_id assignment through params
     @bug.creator = current_user
     
 
@@ -56,31 +53,4 @@ class BugsController < ApplicationController
     end
   end
 
-  # PUT /bugs/1
-  # PUT /bugs/1.xml
-  def update
-    @bug = Bug.find(params[:id])
-
-    respond_to do |format|
-      if @bug.update_attributes(params[:bug])
-        format.html { redirect_to(@bug, :notice => 'Bug was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @bug.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /bugs/1
-  # DELETE /bugs/1.xml
-  def destroy
-    @bug = Bug.find(params[:id])
-    @bug.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(bugs_url) }
-      format.xml  { head :ok }
-    end
-  end
 end

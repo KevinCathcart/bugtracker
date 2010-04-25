@@ -1,3 +1,5 @@
+<p class="notice"><%= notice %></p>
+
 <h1>Listing bugs</h1>
 
 <table>
@@ -8,8 +10,6 @@
     <th>Severity</th>
     <th>Priority</th>
     <th>Product</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
@@ -22,8 +22,6 @@
     <td><%= Bug::PRIORITIES.rassoc(bug.priority)[0] %></td>
     <td><%= bug.product.name %></td>
     <td><%= link_to 'Show', bug %></td>
-    <td><%= link_to 'Edit', edit_bug_path(bug) %></td>
-    <td><%= link_to 'Destroy', bug, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
