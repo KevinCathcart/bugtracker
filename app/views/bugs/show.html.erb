@@ -1,14 +1,21 @@
 <p class="notice"><%= notice %></p>
 
 <p>
+  <b>Number:</b>
+  <%= @bug.number %>
+</p>
+
+<p>
   <b>Description:</b>
   <%= @bug.description %>
 </p>
 
-<p>
-  <b>See also:</b>
-  <%= @bug.see_also %>
-</p>
+<% unless @bug.see_also.blank? %>
+  <p>
+    <b>See also:</b>
+    <%= @bug.see_also %>
+  </p>
+<% end %>
 
 <p>
   <b>Status:</b>
@@ -25,10 +32,24 @@
   <%= Bug::PRIORITIES.rassoc(@bug.priority)[0]%>
 </p>
 
-<p>
-  <b>Duplicate of:</b>
-  <%= @bug.duplicate_of_id %>
-</p>
+<% dupes = @bug.duplicates %>
+<% unless dupes.blank? %>
+  <p>
+    <b>Duplicates:</b>
+    <% dupes.each do |b| %>
+      <%= link_to b.number, b %>
+      <%= ',' unless b==dupes.last %>
+    <% end %>
+<% end %>
+
+<% d_o = @bug.duplicate_of %>
+<% if d_o %>
+  <p>
+    <b>Duplicate of:</b>
+    
+    <%= link_to d_o.number, d_o %>
+  </p>
+<% end %>
 
 <p>
   <b>Creator:</b>

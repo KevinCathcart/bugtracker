@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Number</th>
     <th>Description</th>
     <th>Status</th>
     <th>Severity</th>
@@ -14,6 +15,7 @@
 
 <% @bugs.each do |bug| %>
   <tr>
+    <td><%= bug.number %></td>
     <td><%= bug.description %></td>
     <td><%= Bug::STATUSES.rassoc(bug.status)[0] %></td>
     <td><%= Bug::SEVERITIES.rassoc(bug.severity)[0] %></td>

@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
-  
+
+  private
   helper_method :current_user, :rpx_url
   
   def current_user
