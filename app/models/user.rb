@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   validates :identifier, :presence => true, :uniqueness => true
 
+  has_many :created_bugs, :class_name => 'Bug', :foreign_key => 'creator_id'
+  
   def displayname
     if nickname
       nickname + " (#{identifier_hash})"

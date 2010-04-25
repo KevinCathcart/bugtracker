@@ -3,12 +3,9 @@
 <table>
   <tr>
     <th>Description</th>
-    <th>See also</th>
     <th>Status</th>
     <th>Severity</th>
     <th>Priority</th>
-    <th>Duplicate of</th>
-    <th>Creator</th>
     <th>Product</th>
     <th></th>
     <th></th>
@@ -18,13 +15,10 @@
 <% @bugs.each do |bug| %>
   <tr>
     <td><%= bug.description %></td>
-    <td><%= bug.see_also %></td>
-    <td><%= bug.status %></td>
-    <td><%= bug.severity %></td>
-    <td><%= bug.priority %></td>
-    <td><%= bug.duplicate_of_id %></td>
-    <td><%= bug.creator_id %></td>
-    <td><%= bug.product_id %></td>
+    <td><%= Bug::STATUSES.rassoc(bug.status)[0] %></td>
+    <td><%= Bug::SEVERITIES.rassoc(bug.severity)[0] %></td>
+    <td><%= Bug::PRIORITIES.rassoc(bug.priority)[0] %></td>
+    <td><%= bug.product.name %></td>
     <td><%= link_to 'Show', bug %></td>
     <td><%= link_to 'Edit', edit_bug_path(bug) %></td>
     <td><%= link_to 'Destroy', bug, :confirm => 'Are you sure?', :method => :delete %></td>

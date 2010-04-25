@@ -41,6 +41,9 @@ class BugsController < ApplicationController
   # POST /bugs.xml
   def create
     @bug = Bug.new(params[:bug])
+    # TODO: forbid creator_id assignment through params
+    @bug.creator = current_user
+    
 
     respond_to do |format|
       if @bug.save

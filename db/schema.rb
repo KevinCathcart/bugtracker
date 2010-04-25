@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100413230814) do
+ActiveRecord::Schema.define(:version => 20100421210349) do
 
   create_table "bugs", :force => true do |t|
     t.string   "description"
@@ -20,6 +20,12 @@ ActiveRecord::Schema.define(:version => 20100413230814) do
     t.integer  "duplicate_of_id"
     t.integer  "creator_id"
     t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

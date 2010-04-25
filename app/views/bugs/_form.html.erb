@@ -4,7 +4,7 @@
       <h2><%= pluralize(@bug.errors.count, "error") %> prohibited this bug from being saved:</h2>
 
       <ul>
-      <% @bugs.errors.full_messages.each do |msg| %>
+      <% @bug.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -21,27 +21,31 @@
   </div>
   <div class="field">
     <%= f.label :status %><br />
-    <%= f.text_field :status %>
+    <%= f.select :status, Bug::STATUSES,
+      :prompt => "Select status"
+    %>
   </div>
   <div class="field">
     <%= f.label :severity %><br />
-    <%= f.text_field :severity %>
+    <%= f.select :severity, Bug::SEVERITIES,
+      :prompt => "Select severity"
+    %>
   </div>
   <div class="field">
     <%= f.label :priority %><br />
-    <%= f.text_field :priority %>
+    <%= f.select :priority, Bug::PRIORITIES,
+      :prompt => "Select priority"
+    %>
   </div>
   <div class="field">
     <%= f.label :duplicate_of_id %><br />
     <%= f.text_field :duplicate_of_id %>
   </div>
   <div class="field">
-    <%= f.label :creator_id %><br />
-    <%= f.text_field :creator_id %>
-  </div>
-  <div class="field">
     <%= f.label :product_id %><br />
-    <%= f.text_field :product_id %>
+    <%= f.collection_select :product_id, Product.all, :id, :name,
+      :prompt => "Select product"
+    %>
   </div>
   <div class="actions">
     <%= f.submit %>
