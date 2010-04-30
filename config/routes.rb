@@ -16,7 +16,9 @@ Bugtracker::Application.routes.draw do
   resources :bugs, :only => [:index, :show, :new, :create] do
     resources :comments, :only => [:create, :new], :controller => 'bug_comments'
   end
-  
+   resources :solutions, :only => [:index, :show, :new, :create] do
+    resources :comments, :only => [:create, :new], :controller => 'solution_comments'
+  end
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => "bugs#index"

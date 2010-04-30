@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+ 
+
   # This is the only controler where we want crosssite requests
   # so skip the scross site request forgery checks.
   skip_before_filter :verify_authenticity_token

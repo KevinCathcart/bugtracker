@@ -1,0 +1,50 @@
+<%= form_for(@solution) do |f| %>
+  <% if @solution.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@solution.errors.count, "error") %> prohibited this solution from being saved:</h2>
+
+      <ul>
+      <% @solution.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :see_also %><br />
+    <%= f.text_field :see_also %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.select :status, Solution::STATUSES,
+      :prompt => "Select status"
+    %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :duplicate_of_id %><br />
+    <%= f.text_field :duplicate_of_id %>
+  </div>
+  <div class="field">
+    <%= f.label :product_id %><br />
+    <%= f.collection_select :product_id, Product.all, :id, :name,
+      :prompt => "Select product"
+    %>
+  </div>
+<!--  <div class="field">
+    <%#= f.label :bug_id %><br/>
+    <%#= f.text_field :bug_id %>
+  </div>-->
+  <div class="field">
+    <%= f.label :patch_link %><br/>
+    <%= f.text_field :patch_link %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

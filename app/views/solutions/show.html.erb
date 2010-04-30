@@ -1,0 +1,67 @@
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>Number:</b>
+  <%= @solution.number %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @solution.description %>
+</p>
+
+<% unless @solution.see_also.blank? %>
+  <p>
+    <b>See also:</b>
+    <%= @solution.see_also %>
+  </p>
+<% end %>
+
+<% unless @solution.see_also.blank? %>
+  <p>
+    <b>Patch Link</b>
+    <%= @solution.patch_link %>
+  </p>
+<% end %>
+
+<p>
+  <b>Status:</b>
+  <%= Solution::STATUSES.rassoc(@solution.status)[0]%>
+</p>
+
+<% dupes = @solution.duplicates %>
+<% unless dupes.blank? %>
+  <p>
+    <b>Duplicates:</b>
+    <% dupes.each do |b| %>
+      <%= link_to b.number, b %>
+      <%= ',' unless b==dupes.last %>
+    <% end %>
+<% end %>
+
+<% d_o = @solution.duplicate_of %>
+<% if d_o %>
+  <p>
+    <b>Duplicate of:</b>
+    
+    <%= link_to d_o.number, d_o %>
+  </p>
+<% end %>
+
+<p>
+  <b>Creator:</b>
+  <%= @solution.creator.displayname %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @solution.product.name %>
+</p>
+
+
+<%= render(:partial => "shared/comment" , :collection => @solution.comments) %>
+
+<% if current_user %>
+<%= link_to 'New Comment', new_solution_comment_path(@solution) %> |
+<% end %>
+<%= link_to 'Back', solutions_path %>
