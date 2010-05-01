@@ -4,7 +4,7 @@ class Bug < ActiveRecord::Base
   belongs_to :duplicate_of, :class_name => 'Bug'
   has_many :duplicates, :class_name => 'Bug', :foreign_key => 'duplicate_of_id'
   has_many :comments, :class_name => 'BugComment'
-  has_and_belongs_to_many :solutions, :validate => true
+  has_and_belongs_to_many :solutions, :validate => true, :uniq => true
   
   PRIORITIES = [[ 'Very High', 5 ],[ 'High' , 4 ],[ 'Moderate', 3 ],[ 'Low', 2 ],[ 'Very Low', 1 ]]
   SEVERITIES =[[ 'Blocker', 0], ['Mostly Non-Trivial', 1], ['Major', 2], ['Normal', 3],['Minor', 4], ['Trivial',5],['Enhancement',6]]

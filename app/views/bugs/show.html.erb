@@ -42,6 +42,18 @@
     <% end %>
 <% end %>
 
+<% sols = @bug.solutions %>
+<% unless sols.blank? %>
+  <p>
+    <b>Solutions:</b>
+    <% sols.each do |s| %>
+      <%= link_to s.number, s %>
+      <%= link_to "delete", bug_solution_path(s), :method=>:delete  if current_user %>
+      <%= ',' unless s==sols.last %>
+    <% end %>
+<% end %>
+
+
 <% d_o = @bug.duplicate_of %>
 <% if d_o %>
   <p>

@@ -39,6 +39,16 @@
     <% end %>
 <% end %>
 
+<% bugs = @solution.bugs %>
+<% unless bugs.blank? %>
+  <p>
+    <b>Bugs:</b>
+    <% bugs.each do |b| %>
+      <%= link_to b.number, b %>
+      <%= ',' unless b==bugs.last %>
+    <% end %>
+<% end %>
+
 <% d_o = @solution.duplicate_of %>
 <% if d_o %>
   <p>
