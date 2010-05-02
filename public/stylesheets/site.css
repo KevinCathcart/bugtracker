@@ -7,20 +7,14 @@ html, body { background: #333 }
 
 #topbar { text-align: right; background: #4F4; padding: 1em; border-bottom: solid 0.5em #181} 
 #content { background: #AF4; padding:3em}
-/*
-.button_to { display:inline}
-.button_to div {display:inline}
 
-.delete_button { 
-  background: transparent; 
-  border: 0; 
-  display: inline;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-  cursor: hand;
-  text-decoration: underline;
-}
-.delete_button { color: #000; }
-.delete_button:hover { color: #fff; background-color:#000; }
-*/
+table {
+  border-collapse: collapse;
+ }
+
+td, th { padding:0.5em; border: 1px solid #CCC; }
+thead { background-color:#DDD; }
+.sortcol { cursor: pointer; padding-right: 20px; background-repeat: no-repeat; background-position: right center;}
+.sortasc { background-color:#DDFFAC; background-image: url(../images/up.png) }
+.sortdesc { background-color:#B9DDFF; background-image: url(../images/down.png) }
+.nosort { cursor: default }

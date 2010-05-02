@@ -22,6 +22,10 @@ class BugSolutionsController < ApplicationController
     render :action => "new"
   end
   
+  # GET /bug/1/solution/6764/delete
+  def delete
+  end
+  
   # DELETE /bug/1/solution/6764
   def destroy
     @bug = Bug.find(params[:bug_id])

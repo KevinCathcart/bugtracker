@@ -13,7 +13,11 @@ Bugtracker::Application.routes.draw do
   resource :session, :only => [:show, :create, :destroy]
   resources :bugs, :only => [:index, :show, :new, :create] do
     resources :comments, :only => [:create, :new], :controller => 'bug_comments'
-    resources :solutions, :only => [:create, :new, :destroy], :controller => 'bug_solutions'
+    resources :solutions, :only => [:create, :new, :destroy], :controller => 'bug_solutions' do
+      member do
+	get :delete
+      end
+    end
   end
    resources :solutions, :only => [:index, :show, :new, :create] do
     resources :comments, :only => [:create, :new], :controller => 'solution_comments'

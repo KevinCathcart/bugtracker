@@ -1,25 +1,26 @@
-<p class="notice"><%= notice %></p>
-
 <h1>Listing solutions</h1>
 
-<table>
-  <tr>
-    <th>Number</th>
-    <th>Description</th>
-    <th>Status</th>
-    <th>Product</th>
-    <th></th>
-  </tr>
-
-<% @solutions.each do |solution| %>
-  <tr>
-    <td><%= solution.number %></td>
-    <td><%= solution.description %></td>
-    <td><%= Solution::STATUSES.rassoc(solution.status)[0] %></td>
-    <td><%= solution.product.name %></td>
-    <td><%= link_to 'Show', solution %></td>
-  </tr>
-<% end %>
+<table class="sortable">
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Product</th>
+      <th class="nosort"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @solutions.each do |solution| %>
+      <tr>
+	<td><%= solution.number %></td>
+	<td><%= solution.description %></td>
+	<td><%= Solution::STATUSES.rassoc(solution.status)[0] %></td>
+	<td><%= solution.product.name %></td>
+	<td><%= link_to 'Show', solution %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <br />

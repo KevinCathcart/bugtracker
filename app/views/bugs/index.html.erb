@@ -1,29 +1,31 @@
-<p class="notice"><%= notice %></p>
 
 <h1>Listing bugs</h1>
 
-<table>
-  <tr>
-    <th>Number</th>
-    <th>Description</th>
-    <th>Status</th>
-    <th>Severity</th>
-    <th>Priority</th>
-    <th>Product</th>
-    <th></th>
-  </tr>
-
-<% @bugs.each do |bug| %>
-  <tr>
-    <td><%= bug.number %></td>
-    <td><%= bug.description %></td>
-    <td><%= Bug::STATUSES.rassoc(bug.status)[0] %></td>
-    <td><%= Bug::SEVERITIES.rassoc(bug.severity)[0] %></td>
-    <td><%= Bug::PRIORITIES.rassoc(bug.priority)[0] %></td>
-    <td><%= bug.product.name %></td>
-    <td><%= link_to 'Show', bug %></td>
-  </tr>
-<% end %>
+<table class="sortable">
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Severity</th>
+      <th>Priority</th>
+      <th>Product</th>
+      <th class="nosort"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bugs.each do |bug| %>
+      <tr>
+	<td><%= bug.number %></td>
+	<td><%= bug.description %></td>
+	<td><%= Bug::STATUSES.rassoc(bug.status)[0] %></td>
+	<td><%= Bug::SEVERITIES.rassoc(bug.severity)[0] %></td>
+	<td><%= Bug::PRIORITIES.rassoc(bug.priority)[0] %></td>
+	<td><%= bug.product.name %></td>
+	<td><%= link_to 'Show', bug %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <br />
