@@ -2,7 +2,7 @@
 
 html, body { background: #333 }
 
-#content, #topbar {margin: auto 10% auto 10%; }
+#content, #topbar {margin: auto 10% auto 10%; overflow:auto }
 .title {float:left; font-size:200%}
 
 #topbar { text-align: right; background: #4F9; padding: 1em; border-bottom: solid 0.5em #2B5} 
