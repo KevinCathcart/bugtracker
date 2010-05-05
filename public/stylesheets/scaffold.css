@@ -21,19 +21,19 @@ div.field, div.actions {
 }
 
 .notice, .alert {
-  color: red;
+  color: #B25;
 }
 
 
 .fieldWithErrors {
   padding: 2px;
-  background-color: red;
+  background-color: #F49;
   display: table;
 }
 
 #errorExplanation {
   width: 450px;
-  border: 2px solid red;
+  border: 2px solid #F49;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;

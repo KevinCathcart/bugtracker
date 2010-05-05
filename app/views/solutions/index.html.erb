@@ -25,5 +25,7 @@
 
 <br />
 
+<% if current_user %>
 <%= link_to 'New Solution', new_solution_path %>  |
+<% end %>
 <%= link_to 'Back', root_path %>

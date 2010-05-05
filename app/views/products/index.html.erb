@@ -1,0 +1,11 @@
+
+<h1>Showing products</h1>
+
+<ul>
+ <% @products.sort_by(&:name).each do |p| %>
+  <li> <%= link_to p.name, product_path(p) %> </li>
+ <% end %>
+</ul> 
+
+<br/>
+<%= link_to 'Back', root_path %>

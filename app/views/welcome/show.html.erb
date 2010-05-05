@@ -3,6 +3,7 @@
     <p>Welcome to BugZapper, <%= current_user.displayname %></p>
  <% end %>
  <ul>
+  <li> <%= link_to 'Browse Products', products_path %> </li>
   <li> <%= link_to 'View Bugs', bugs_path %> </li>
   <li> <%= link_to 'View Solutions', solutions_path %> </li>
  </ul>

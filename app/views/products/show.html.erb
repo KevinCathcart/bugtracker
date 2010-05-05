@@ -1,0 +1,42 @@
+<h2><%= @product.name  %></h2>
+
+<div class="product_severity" style="float:right; margin-right:50%">
+<% @stats[:severities].each do |s,v| %>
+  <p> 
+     <b><%= s %>:</b>
+     <%= v[:count] %>
+   </p>
+<% end %>
+</div>
+<div class="product_status" >
+<% @stats[:statuses].each do |s,v| %>
+  <p> 
+    <b><%= s %>:</b>
+     <%= v[:count] %>
+  </p>
+<% end %>
+</div>
+<table class="sortable">
+  <thead>
+    <tr> 
+      <th></th>
+      <% @stats[:statuses].each do |s,_| %>
+	<th> <%= s %> </th>
+      <% end %>
+    </tr>
+</thead>
+<tbody>
+    <% @stats[:severities].each do |s,v| %>
+      <tr>
+	<th> <%= s %> </th>
+	<% @stats[:statuses].each do |s2,_| %>
+	  <td> <%= v[s2][:count] %> </td>
+	<% end %>
+      </tr>
+    <% end %>
+</tbody>
+</table>
+
+<br/>
+<%= link_to 'Back', products_path %>
+  

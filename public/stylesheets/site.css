@@ -5,16 +5,19 @@ html, body { background: #333 }
 #content, #topbar {margin: auto 10% auto 10%; }
 .title {float:left; font-size:200%}
 
-#topbar { text-align: right; background: #4F4; padding: 1em; border-bottom: solid 0.5em #181} 
+#topbar { text-align: right; background: #4F9; padding: 1em; border-bottom: solid 0.5em #2B5} 
 #content { background: #AF4; padding:3em}
 
 table {
   border-collapse: collapse;
  }
 
-td, th { padding:0.5em; border: 1px solid #CCC; }
-thead { background-color:#DDD; }
+td, th { padding:0.5em; border: 1px solid #6A1; }
+
+tr.rowodd {}
+.roweven td { background-color: #CF7 }
 .sortcol { cursor: pointer; padding-right: 20px; background-repeat: no-repeat; background-position: right center;}
-.sortasc { background-color:#DDFFAC; background-image: url(../images/up.png) }
-.sortdesc { background-color:#B9DDFF; background-image: url(../images/down.png) }
+.sortasc { background-color:#6C8; background-image: url(../images/up.png) }
+.sortdesc { background-color:#BC6; background-image: url(../images/down.png) }
 .nosort { cursor: default }
+th { background-color:#9c6; }

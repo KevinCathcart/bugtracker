@@ -30,5 +30,7 @@
 
 <br />
 
+<% if current_user %>
 <%= link_to 'New Bug', new_bug_path %> |
+<% end %>
 <%= link_to 'Back', root_path %>
